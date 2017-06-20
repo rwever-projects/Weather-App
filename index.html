@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>SER421 Lab 5 - Activity 2</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Rudi Wever">
+
+        <link rel="shortcut icon" href="./images/Weather-icon.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Maitree" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <style>.dropdown select{background: url('./images/dropdownarrow.png') no-repeat 82% 0}</style>
+        <script src="./javascript/RGraph.common.core.js"></script>
+        <script src="./javascript/RGraph.line.js"></script><!-- Needed for Line charts -->
+    </head>
+
+    <body>
+        <div id="BG">
+            <header>
+                <h1>Weather Data App</h1>
+                <h2>SER421 Lab6</h2>
+            </header>
+            <table id=tableDashboard>
+                <tr>
+                    <td>
+                        <div id="dashboard">
+                            <hr id="line1"/>
+                            <div id="average">
+                                <label id="averageLabel">The average temperature is: </label>
+                                <textarea id="avg" disabled></textarea>
+                            </div>
+                            <div id="hottest">
+                                <label id="hottestLabel">The hottest city is: </label>
+                                <textarea id="hot" disabled></textarea>
+                            </div>
+                            <div id="nicest">
+                                <label id="nicestLabel">The city with the nicest weather is: </label>
+                                <textarea id="nice" disabled></textarea>
+                            </div>
+                            <hr id="line2"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="legend"></div>
+            <table id="table" style="font-size:90%;">
+                <tr>
+                    <th id="h0"></th>
+                    <th id="h1">CITY</th>
+                    <th id="h2">LAST UPDATE TIME</th> 
+                    <th id="h3">TEMPERATURE</th>
+                    <th id="h4">HUMIDITY</th>
+                    <th id="h5">WIND SPEED</th>
+                    <th id="h6">CONDITIONS</th>
+                </tr>
+
+                <tr>
+                    <td class="butt"><button id="forecastCity1" onclick='ajaxResult("","r0time")' type="button">Forecast</button></td>
+                    <td id="r0city">Phoenix</td>
+                    <td id="r0time"></td>
+                    <td>
+                        <table>
+                            <tr><td id="r0temp"></td></tr>
+                            <tr><td id="feelsLikeTemp0"></td></tr>
+                        </table>
+                    </td>
+                    <td id="r0hum"></td>
+                    <td id="r0wind"></td>
+                    <td id="r0cond"></td>
+                </tr>
+
+                <tr>
+                    <td class="butt"><button id="forecastCity2" type="button">Forecast</button></td>
+                    <td id="r1city">Paris</td>
+                    <td id="r1time"></td>
+                    <td>
+                        <table>
+                            <tr><td id="r1temp"></td></tr>
+                            <tr><td id="feelsLikeTemp1"></td></tr>
+                        </table>
+                    </td>
+                    <td id="r1hum"></td>
+                    <td id="r1wind"></td>
+                    <td id="r1cond"></td>
+                </tr>
+
+                <tr>
+                    <td class="butt"><button id="forecastCity3" type="button">Forecast</button></td>
+                    <div id="alert" class="show">
+                        <span id="closebtn" onclick="this.parentElement.style.display='none';" >&times;</span> 
+                        <span id="message">No city selected.  Please choose a city.</span>
+                    </div>
+                    <td id="r2city">
+                        <div class="dropdown">
+                            <select id="selection" name="cities" autocomplete="off">
+                                <option value="" selected>Pick a city...</option>
+                                <option>Buenos Aires, ARG</option>
+                                <option>Ciaro, EYG</option>
+                                <option>Juneau, AK</option>
+                                <option>Marseille, FRA</option>
+                                <option>San Francisco, CA</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td id="r2time"></td>
+                    <td>
+                        <table>
+                            <tr><td id="r2temp"></td></tr>
+                            <tr><td id="feelsLikeTemp2"></td></tr>
+                        </table>
+                    </td>
+                    <td id="r2hum"></td>
+                    <td id="r2wind"></td>
+                    <td id="r2cond"></td>
+                </tr>
+            </table>
+            
+             <div id="fresh">
+                <button id="refresh" type="button"><b>REFRESH</b></button>
+            </div>
+            <div id="forecasting">
+                <hr id="line3"/>
+                <div id="forecastIs">
+                    <div  id="tomorrowDay"></div>
+                    <div  id="tomorrowNight"></div>
+                </div>
+                <hr id="line4"/>
+            </div>
+            <div style="margin-left: 12.5%; margin-top: 10px;display: inline-block">
+                <canvas id="cvs" width="700" height="276"></canvas>
+            </div>
+            
+        </div>
+
+        <script src="./javascript/weather.js"></script>
+    </body>
+</html> 
