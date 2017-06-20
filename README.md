@@ -1,6 +1,6 @@
 # Weather-App
 #### Author: Rudi Wever
-http://www.public.asu.edu/~rwever/
+http://www.public.asu.edu/~rwever/weather/
 ## Using AJAX to access REST-like API
 #### Languages: HTML5, CSS, JavaScript, AJAX
 
